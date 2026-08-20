@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Deep ambient arcade background with subtle lighting glows */
+    background: radial-gradient(circle at 20% 20%, #2a0845 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, #11002c 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, #0d1127 0%, #05050f 100%);
+    background-color: #080814;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    text-align: center;
+    /* Glassmorphism card container */
+    background: rgba(23, 25, 45, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 35px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+                0 0 30px rgba(112, 0, 255, 0.15);
+    width: 380px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    /* Blue neon gradient title */
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #00c6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    gap: 12px;
+}
+
+.score-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 8px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.score-box span:first-child {
+    font-size: 11px;
+    color: #8f94ba;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.score-box span:last-child {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+#status {
+    font-size: 18px;
+    margin-bottom: 22px;
+    font-weight: 600;
+    color: #cbd3f5;
+    letter-spacing: 0.5px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 95px);
+    grid-template-rows: repeat(3, 95px);
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.cell {
+    width: 95px;
+    height: 95px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 48px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Neon X and O Colors with Outer Glows */
+.cell.x {
+    color: #ff3366;
+    text-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
+    animation: pop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cell.o {
+    color: #00e676;
+    text-shadow: 0 0 12px rgba(0, 230, 118, 0.6);
+    animation: pop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Gold Winning Line Highlight */
+.cell.winning {
+    background: linear-gradient(135deg, #ffb300, #ff8f00) !important;
+    color: #080814 !important;
+    text-shadow: none !important;
+    box-shadow: 0 0 25px rgba(255, 179, 0, 0.8);
+    transform: scale(1.06);
+    border: none;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#restart {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.3);
+}
+
+#restart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 114, 255, 0.5);
+}
+
+#restart:active {
+    transform: translateY(0);
+}
