@@ -19,8 +19,7 @@
 
 ##  Screenshot
 
-Add a screenshot of the game here.
-
+![Tic Tac Toe](game.png.png)
 ##  Future Improvements
 
 - Player vs Computer
